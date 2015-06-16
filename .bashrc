@@ -26,6 +26,7 @@
 #export PILOTRATE=115200
 
 test -s ~/.alias && . ~/.alias || true
+test -s ~/.ls.bash && . ~/.ls.bash
 test -s ~/.bashrc.private && . ~/.bashrc.private || true
 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
@@ -33,8 +34,8 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
 if [ $TERM = screen ]; then
 	SCREENTITLE='\[\ek\e\\\]'
 elif [ $TERM = xterm -o $TERM = "xterm-256color" ]; then
-	# ÃÂÃÂ¤uÃÂÃÂere eckige Klammer \[ und \], weil Zeilen in der Shell sonst nicht mehr
-	# richtig bearbeitet werden kÃÂÃÂ¶nnen
+	# Aeussere eckige Klammer \[ und \], weil Zeilen in der Shell sonst nicht mehr
+	# richtig bearbeitet werden koennen
 	SCREENTITLE='\[\033]0;\w - \u@\h\007\]'
 else
 	SCREENTITLE=""
@@ -79,6 +80,15 @@ function doi2bib() {
 	curl -LH "Accept: application/x-bibtex" $URL
 	echo
 }
+
+function formatjson() {
+	if [ $# -gt 0 ]; then
+		cat $1 | python -m json.tool | pygmentize -l javascript -O bg=dark
+	else
+		python -m json.tool | pygmentize -l javascript -O bg=dark
+	fi
+}
+#function formatjson="python -m json.tool | pygmentize -l javascript -O bg=dark"
 
 
 eval "$(dircolors ~/.dircolors)"

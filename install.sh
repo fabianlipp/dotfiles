@@ -2,7 +2,7 @@
 
 DOTFILE_DIR=~/.dotfiles
 BACKUP_DIR=$DOTFILE_DIR/backup/   # with / at end
-FILES=".bashrc .dircolors"
+FILES=".bashrc .dircolors .inputrc"
 
 if [ ! -e $BACKUP_DIR ]; then
 	mkdir $BACKUP_DIR

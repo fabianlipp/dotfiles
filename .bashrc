@@ -29,7 +29,12 @@ test -s ~/.alias && . ~/.alias || true
 test -s ~/.ls.bash && . ~/.ls.bash
 test -s ~/.bashrc.private && . ~/.bashrc.private || true
 
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
+if [ $EUID -eq 0 ]; then
+        PROMPT_USER_COL=31
+else
+        PROMPT_USER_COL=32
+fi
+PS1='\[\033[01;${PROMPT_USER_COL}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
 
 if [ $TERM = screen ]; then
 	SCREENTITLE='\[\ek\e\\\]'

@@ -31,10 +31,12 @@ test -s ~/.bashrc.private && . ~/.bashrc.private || true
 
 if [ $EUID -eq 0 ]; then
         PROMPT_USER_COL=31
+        PROMPT_SYMBOL="#"
 else
         PROMPT_USER_COL=32
+        PROMPT_SYMBOL=">"
 fi
-PS1='\[\033[01;${PROMPT_USER_COL}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
+PS1='\[\033[01;${PROMPT_USER_COL}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;${PROMPT_USER_COL}m\]${PROMPT_SYMBOL}\[\033[00m\] '
 
 if [ $TERM = screen ]; then
 	SCREENTITLE='\[\ek\e\\\]'

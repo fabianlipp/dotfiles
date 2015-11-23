@@ -145,5 +145,8 @@ man() {
 		man "$@"
 }
 
+# Settings for bash
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
 
 

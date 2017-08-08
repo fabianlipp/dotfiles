@@ -2,7 +2,7 @@
 
 DOTFILE_DIR=~/.dotfiles
 BACKUP_DIR=$DOTFILE_DIR/backup/   # with / at end
-FILES=".bashrc .dircolors .inputrc .ls.bash .ipe"
+FILES=".bashrc .dircolors .inputrc .ls.bash .ipe .vimrc .gvimrc .vim"
 
 if [ ! -e $BACKUP_DIR ]; then
 	mkdir $BACKUP_DIR

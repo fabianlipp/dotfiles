@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/linediff"]
 	path = .vim/bundle/linediff
-	url = git://github.com/AndrewRadev/linediff.vim.git
+	url = https://github.com/AndrewRadev/linediff.vim.git
 [submodule ".vim/bundle/tex_autoclose"]
 	path = .vim/bundle/tex_autoclose
 	url = https://github.com/gi1242/vim-tex-autoclose.git
